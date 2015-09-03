@@ -246,10 +246,11 @@ a:active span{
 	border: 0;
 	color: #000;
 }
-.b-box1{width: 160px;height: 160px; float: left; display: block;}
-.b-box2{width: 320px;height: 260px; float: left; display: block;}
-.b-box3{width: 320px;height: 440px; float: left; display: block;}
-.b-box4{width: 660px;height: 440px; float: left; display: block;}
+.b-box1{width: 160px;height: 160px; float: left; display: block; position: relative;}
+.b-box2{width: 320px;height: 260px; float: left; display: block; position: relative;}
+.b-box3{width: 320px;height: 440px; float: left; display: block; position: relative;}
+.b-box4{width: 660px;height: 440px; float: left; display: block; position: relative;}
+.b-box5{width: 235px;height: 320px; float: left; display: block; position: relative;}
 .b-vert{ display: table-cell; vertical-align: middle;width: inherit; height: inherit;}
 
 /**/
@@ -406,7 +407,9 @@ box-shadow: 0 5px 10px 1px rgba(0,0,0,.3);
 	padding: 0 15px;
 	font: normal 16px/40px 'PFDinTextPro-Medium', sans-serif;
 }
-.lang .active{
+
+.lang .active,
+.lang a:hover{
 	color: #fff;
 	background: #0c2236;
 	-webkit-border-radius: 10px;
@@ -534,6 +537,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#116ba7', end
 	font:normal 16px/24px 'PFDinTextPro-Medium', sans-serif;
 	margin: 0;
 }
+/**/
+.bx-tour_caption{
+	position: absolute;
+	top: 0;
+    margin-top: 320px;
+}
+.bx-tour_caption p{
+	color:#0c2236 ;
+	font:bold 78px/96px 'PFDinTextPro-Bold', sans-serif;
+	text-transform: uppercase;
+	margin-left: 30px;
+}
+/**/
 /**/
 
 /*main-content*/
@@ -971,5 +987,359 @@ a>span:hover{
 }
 .socnet img{
 	margin-right: 38px;
+}
+/*------------*/
+
+/**/
+.tour-header{
+	background: url(../i/tour-slider-1.jpg) no-repeat;
+	width: 1200px;
+	height: 920px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+.bread{
+	margin-top: 150px;
+}
+.bread span{
+	color: #cbcbcb;
+	font:normal 14px/22px 'MyriadPro-Italic', sans-serif;
+}
+.tour-header h1{
+	color: #0c2236;
+	font:normal 48px/48px 'PFDinTextPro-Medium', sans-serif;
+	text-transform: uppercase;
+}
+.tour-header p em>span{
+	color: #0061ae;
+
+}
+
+	/*------*/
+/*style chekbox*/
+ /* Cначала обозначаем стили для IE8 и более старых версий
+т.е. здесь мы немного облагораживаем стандартный чекбокс. */
+.checkbox {vertical-align: top;margin: 0 3px 0 0;width: 21px;height: 21px;}
+/* Это для всех браузеров, кроме совсем старых, которые не поддерживают
+селекторы с плюсом. Показываем, что label кликабелен. */
+.checkbox + label {cursor: pointer;}
+
+/* Далее идет оформление чекбокса в современных браузерах, а также IE9 и выше.
+Благодаря тому, что старые браузеры не поддерживают селекторы :not и :checked,
+в них все нижеследующие стили не сработают. */
+
+/* Прячем оригинальный чекбокс. */
+.checkbox:not(checked) {
+  position: absolute;
+  opacity: 0;
+}
+.checkbox:not(checked) + label {
+  position: relative; /* будем позиционировать псевдочекбокс относительно label */
+  padding: 0; /* оставляем слева от label место под псевдочекбокс */
+}
+/* Оформление первой части чекбокса в выключенном состоянии (фон). */
+.checkbox:not(checked) + label:before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 25px;
+  height: 25px;
+ /* border:2px solid #2c9ef8;*/
+  background: url(../images/square.png);
+}
+/* Оформление второй части чекбокса в выключенном состоянии (переключатель). */
+.checkbox:not(checked) + label:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  background: transparent;
+  transition: all .2s; /* анимация, чтобы чекбокс переключался плавно */
+}
+.checkbox:not(checked) + label:hover:after{
+  content: '✔';
+  position: absolute;
+    color: #048cf7;
+  top: -4px;
+  left: 0px;
+  width: 21px;
+  height: 21px;
+  font-size: 38px;
+      line-height: 20px;
+    background: transparent;
+}
+/* Меняем фон чекбокса, когда он включен. ✔*/
+.checkbox:checked + label:before {
+  content: '✔';
+      color: #048cf7;
+        font-size: 38px;
+            line-height: 20px;
+  /*background: url(../images/checked.png) 50% 50%;*/
+
+}
+/* Сдвигаем переключатель чекбокса, когда он включен. */
+.checkbox:checked + label:after {
+  left: 26px;
+}
+/* Показываем получение фокуса. */
+.checkbox:focus + label:before {
+/*  box-shadow: 0 0 0 3px rgba(44, 158, 248,.3);*/
+}
+
+ /**/
+.season{position: relative;margin-bottom: 20px;}
+.season h2{color: #0c2236;font:normal 24px/30px 'PFDinTextPro-Medium', sans-serif;text-transform: uppercase;}
+.season:after{content:'';display: table;clear: both;}
+.si{margin-right: 20px;overflow: hidden;text-align: center;}
+.si:last-child{margin-right: 0;}
+.si_c{
+	background: rgba(255,255,255,.7);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: inherit;
+	height: inherit;
+	vertical-align:middle;
+	-webkit-transition:.4s;
+	-moz-transition:.4s;
+	transition:.4s;
+}
+.si_c-i{
+	background: #0c2236;
+	width: 50px;
+	height: 50px;
+	margin: 55px auto 0;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+.si_c-i img{
+
+	text-align: center;
+	vertical-align: middle;
+}
+.si_c-n{
+	margin: 10px 0 60px;
+
+}
+.si_c-n>span{
+	color: #0061ae;
+	font:normal 16px/48px 'PFDinTextPro-Medium', sans-serif;
+	border-bottom: 1px dashed;
+	text-transform: uppercase;
+}
+.si_c p{
+	color: #0c2236;
+	font:normal 14px/22px 'PFDinTextPro-Italic', sans-serif;
+	margin: 0 0 10px;
+}
+.si-d em{
+	color: #0061ae;
+}
+	/*si-hover*/
+	.si:hover .si_c{
+		height: 133px;
+		bottom: 0;
+	}
+	/**/
+/**/
+.th-b{
+	position: relative;
+	overflow: hidden;
+}
+.th-b:after{
+	content:'';
+	display: table;
+	clear: both;	
+}
+.th-b_visa{
+	background: #fff;
+	width: 312px;
+	height: 115px;
+	text-align: center;
+	border: 3px solid #7fbc42;
+	float: left;
+	margin-right: 20px;
+}
+.th-b_visa img{
+	display: block;
+    float: left;
+    margin-left: 30px;
+}
+.th-b_visa a{
+	color: #0061AE;
+    font: normal 30px/36px 'PFDinTextPro-Medium', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.th-b_cal{
+	background: #fff;
+	width: 660px;
+	height: 121px;
+	float: left;
+}
+.th-b_cal-head{
+	width: 240px;
+	height: inherit;
+	float: left;
+	padding:0 25px;
+	font: normal 26px/30px 'PFDinTextPro-Medium', sans-serif;
+}
+.th-b_cal-event{
+	width: 368px;
+	height: inherit;
+	float: right;
+	position: relative;
+}
+.th-b_cal-event-caption{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: inherit;
+	height: inherit;
+}
+.th-b_cal-event-caption img{
+	display: block;
+    float: left;
+    margin:0 30px 0 40px;
+}
+.th-b_cal-event-caption span{
+	color: #fff;
+	font: normal 20px/28px 'MyriadPro-Semibold';
+}
+/**/
+/*------*/
+.vacation{
+	position: relative;
+	margin-bottom: 20px;
+}
+.vacation h2{
+	color: #0c2236;
+	font:normal 24px/30px 'PFDinTextPro-Medium', sans-serif;
+	text-transform: uppercase;
+}
+.vacation:after{
+	content:'';
+	display: table;
+	clear: both;
+}
+
+.vi{
+	position: relative;
+	text-align: center;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.vi:nth-child(3n+1){
+	margin-right: 0;
+}
+.vi_c{
+	background: rgba(255,255,255,.7);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: inherit;
+	height: inherit;
+	vertical-align:middle;
+	-webkit-transition:.4s;
+	-moz-transition:.4s;
+	transition:.4s;
+}
+
+.vi-c_n{
+	color: #0c2236;
+	font: normal 26px/30px 'PFDinTextPro-Medium', sans-serif;
+	margin: 15px 0;
+}
+.vi_c p{
+	color: #0c2236;
+	font:normal 16px/36px 'MyriadPro-Regular', sans-serif;
+	text-transform: uppercase;
+}
+.vi-c_d{
+	display: none;
+	text-align: left;
+}
+.vi-c_d span{
+	color: #0c2236;
+	padding-left: 30px;
+	font:normal 14px/30px 'PFDinTextPro-Italic', sans-serif;
+}
+
+.vi:hover .vi_c{
+	top: auto;
+	bottom: 0;
+	height: 150px;
+
+}
+.vi:hover .b-vert>img{
+	display: none;
+}
+.vi:hover .vi-c_n{
+	text-align: left;
+	color: #0061ae;
+	padding-left: 30px;
+	margin-bottom: 0;
+}
+.vi:hover .vi-c_d{
+	display: block;
+}
+/**/
+.feedback{
+	position: relative;
+	margin-bottom: 20px;
+}
+.feedback h2{
+	color: #0c2236;
+	font:normal 24px/30px 'PFDinTextPro-Medium', sans-serif;
+	text-transform: uppercase;
+}
+.feedback:after{
+	content:'';
+	display: table;
+	clear: both;
+}
+.fi{
+	width: 320px;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.fi:last-child{
+	margin-right: 0;
+}
+.fi input{
+	width: 280px;
+	height: 41px;
+	padding:0 20px;
+	border: 0;
+	color: #0c2236;
+	font:normal 16px/36px 'MyriadPro-Italic', sans-serif;
+}
+.btn-fi{
+	background: #7fbc42;
+	width: 200px;
+	height: 40px;
+	color: #fff;
+	font:normal 16px/40px 'PFDinTextPro-Medium', sans-serif;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+	border: 0;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+.btn-fi:hover{
+	-webkit-box-shadow:inset 0 0 10px 2px rgba(12,34,54,.5);
+	box-shadow:inset 0 0 10px 2px rgba(12,34,54,.5);
+}
+.btn-fi:active{
+	background: #0c2236;
 }
 /**/

@@ -7,6 +7,7 @@ $(window).scroll(function(){
 	}
 	else{
 		$(".main-nav").removeClass("locked");
+		$(".main-nav").removeAttr("style");
 		//$("#menu2").removeClass("locked");
 	};
 });
@@ -14,6 +15,11 @@ $(window).scroll(function(){
 $(function(){
 	$(".bx-main").bxSlider({
 		pager:1,
+		controls:0
+	})
+
+	$(".bx-tour").bxSlider({
+		pager:0,
 		controls:0
 	})
 
@@ -56,8 +62,27 @@ $(function(){
 		},500)
 		return false;
 	});
+	
+	$(document).keydown(function(e) {
+    if( e.keyCode === 27 ) {
+        $('.left-menu').animate({
+			"margin-left":"-320px"
+		},500);
+		$('.wrp').animate({
+			"margin-left":"0",
+		},500);
+		$('.locked').animate({
+			"margin-left":"0",
+			"left":"0",
+		},500)
+        return false;
+	    }
+	});
 
+		
 	$('.left-menu_close').click(function(){
+
+
 		$('.left-menu').animate({
 			"margin-left":"-320px"
 		},500);
