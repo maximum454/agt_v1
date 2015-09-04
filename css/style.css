@@ -1017,78 +1017,6 @@ a>span:hover{
 }
 
 	/*------*/
-/*style chekbox*/
- /* Cначала обозначаем стили для IE8 и более старых версий
-т.е. здесь мы немного облагораживаем стандартный чекбокс. */
-.checkbox {vertical-align: top;margin: 0 3px 0 0;width: 21px;height: 21px;}
-/* Это для всех браузеров, кроме совсем старых, которые не поддерживают
-селекторы с плюсом. Показываем, что label кликабелен. */
-.checkbox + label {cursor: pointer;}
-
-/* Далее идет оформление чекбокса в современных браузерах, а также IE9 и выше.
-Благодаря тому, что старые браузеры не поддерживают селекторы :not и :checked,
-в них все нижеследующие стили не сработают. */
-
-/* Прячем оригинальный чекбокс. */
-.checkbox:not(checked) {
-  position: absolute;
-  opacity: 0;
-}
-.checkbox:not(checked) + label {
-  position: relative; /* будем позиционировать псевдочекбокс относительно label */
-  padding: 0; /* оставляем слева от label место под псевдочекбокс */
-}
-/* Оформление первой части чекбокса в выключенном состоянии (фон). */
-.checkbox:not(checked) + label:before {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: 0;
-  width: 25px;
-  height: 25px;
- /* border:2px solid #2c9ef8;*/
-  background: url(../images/square.png);
-}
-/* Оформление второй части чекбокса в выключенном состоянии (переключатель). */
-.checkbox:not(checked) + label:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: inherit;
-  height: inherit;
-  background: transparent;
-  transition: all .2s; /* анимация, чтобы чекбокс переключался плавно */
-}
-.checkbox:not(checked) + label:hover:after{
-  content: '✔';
-  position: absolute;
-    color: #048cf7;
-  top: -4px;
-  left: 0px;
-  width: 21px;
-  height: 21px;
-  font-size: 38px;
-      line-height: 20px;
-    background: transparent;
-}
-/* Меняем фон чекбокса, когда он включен. ✔*/
-.checkbox:checked + label:before {
-  content: '✔';
-      color: #048cf7;
-        font-size: 38px;
-            line-height: 20px;
-  /*background: url(../images/checked.png) 50% 50%;*/
-
-}
-/* Сдвигаем переключатель чекбокса, когда он включен. */
-.checkbox:checked + label:after {
-  left: 26px;
-}
-/* Показываем получение фокуса. */
-.checkbox:focus + label:before {
-/*  box-shadow: 0 0 0 3px rgba(44, 158, 248,.3);*/
-}
 
  /**/
 .season{position: relative;margin-bottom: 20px;}
@@ -1140,12 +1068,69 @@ a>span:hover{
 .si-d em{
 	color: #0061ae;
 }
+.si .si_c-i_a{
+	display: none;
+	background: #7fbc42;
+	width: 50px;
+	height: 50px;
+	margin: 71px 92px;
+	position: absolute;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
 	/*si-hover*/
 	.si:hover .si_c{
 		height: 133px;
 		bottom: 0;
 	}
+	.si:hover .si_c-i{
+		display: none;
+	}
+	.si:hover .si_c-n{
+		text-align: left;
+		margin: 0;
+	}
+	.si:hover .si_c-n span{
+		color: #0c2236;
+		padding-left: 10px;
+		border: 0;
+	}
+	.si:hover p{
+		text-align: left;
+		padding-left: 10px;
+	}
+	.si:hover .si_c-i_a{
+		display:block;
+	}
 	/**/
+	.radiocheck{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: inherit;
+	height: inherit;
+	z-index: 50;
+}
+/*style radio*/
+.form-style .radio {vertical-align: top;margin: 0;width: 39px;height: 39px;}
+.form-style .radio + label {cursor: pointer;width: inherit;height: inherit;}
+.form-style .radio:not(checked) {position: absolute;opacity: 0;}
+.form-style .radio:not(checked) + label {position: absolute;padding: 0; left: 0;}
+/* Оформление первой части чекбокса в выключенном состоянии (фон). */
+.form-style .radio:not(checked) + label:before {content: '';position: absolute;bottom: 20px;right: 20px;width:39px;height:41px;}
+/* Оформление второй части чекбокса в выключенном состоянии (переключатель). */
+.form-style .radio:not(checked) + label:after {content: '';position: absolute;bottom: 0;right: 0;width:39px;height:41px;background: transparent;-webkit-transition: all .2s;-moz-transition: all .2s;transition: all .2s;}
+.form-style .radio:not(checked) + label:hover:after{content: '';position: absolute;color: #048cf7;bottom: 20px;right: 20px;background:url(../i/check.png) no-repeat;width: 39px;height: 41px;}
+/* Меняем фон чекбокса, когда он включен. ✔*/
+.form-style .radio:checked + label:before {content: '';background:url(../i/check.png) no-repeat;}
+/* Сдвигаем переключатель чекбокса, когда он включен. */
+.form-style .radio:checked + label:after {}
+.form-style .checkbox:checked + label:hover:after + .si_c{
+	top: auto;bottom: 0;		height: 133px;}
+/* Показываем получение фокуса. */
+.form-style .radio:focus + label:before {/*  box-shadow: 0 0 0 3px rgba(44, 158, 248,.3);*/}
+/**/
 /**/
 .th-b{
 	position: relative;
@@ -1242,7 +1227,7 @@ a>span:hover{
 .vi_c{
 	background: rgba(255,255,255,.7);
 	position: absolute;
-	top: 0;
+	bottom: 0;
 	left: 0;
 	width: inherit;
 	height: inherit;
@@ -1278,6 +1263,12 @@ a>span:hover{
 	height: 150px;
 
 }
+.vi:active .vi_c{
+	top: auto;
+	bottom: 0;
+	height: 150px;
+
+}
 .vi:hover .b-vert>img{
 	display: none;
 }
@@ -1290,6 +1281,33 @@ a>span:hover{
 .vi:hover .vi-c_d{
 	display: block;
 }
+.check{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: inherit;
+	height: inherit;
+	z-index: 50;
+}
+/*style chekbox*/
+.form-style .checkbox {vertical-align: top;margin: 0;width: 39px;height: 39px;}
+.form-style .checkbox + label {cursor: pointer;width: inherit;height: inherit;}
+.form-style .checkbox:not(checked) {position: absolute;opacity: 0;}
+.form-style .checkbox:not(checked) + label {position: absolute;padding: 0; left: 0;}
+/* Оформление первой части чекбокса в выключенном состоянии (фон). */
+.form-style .checkbox:not(checked) + label:before {content: '';position: absolute;bottom: 20px;right: 20px;width:39px;height:41px;}
+/* Оформление второй части чекбокса в выключенном состоянии (переключатель). */
+.form-style .checkbox:not(checked) + label:after {content: '';position: absolute;bottom: 0;right: 0;width:39px;height:41px;background: transparent;-webkit-transition: all .2s;-moz-transition: all .2s;transition: all .2s;}
+.form-style .checkbox:not(checked) + label:hover:after{content: '';position: absolute;color: #048cf7;bottom: 20px;right: 20px;background:url(../i/check.png) no-repeat;width: 39px;height: 41px;}
+/* Меняем фон чекбокса, когда он включен. ✔*/
+.form-style .checkbox:checked + label:before {content: '';background:url(../i/check.png) no-repeat;}
+/* Сдвигаем переключатель чекбокса, когда он включен. */
+.form-style .checkbox:checked + label:after {}
+.form-style .checkbox:checked + label:hover:after + .vi_c{
+	top: auto;bottom: 0;height: 150px;}
+/* Показываем получение фокуса. */
+.form-style .checkbox:focus + label:before {/*  box-shadow: 0 0 0 3px rgba(44, 158, 248,.3);*/}
+/**/
 /**/
 .feedback{
 	position: relative;
@@ -1341,5 +1359,23 @@ a>span:hover{
 }
 .btn-fi:active{
 	background: #0c2236;
+}
+/**/
+
+/*inner-header*/
+.inner-header{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	position: relative;
+}
+.inner-header .lang,
+.inner-header .phone{
+	display: none;
+}
+.img-left-header{
+	width: 340px;
+	float: left;
+	position: relative;
 }
 /**/
